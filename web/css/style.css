@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+html, body, .main {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.main {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    margin-top: 30px;
+    width: 50%;
+    max-width: 502px;
+    height: 10%;
+    max-height: 55px;
+    font-weight: 600;
+    background-color: inherit;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 100rem;
+    padding: 1rem;
+    font-size: 1rem;
+    padding: .5rem 3rem;
+    color: #6111ac;
+    box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+    border: solid 3px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #4c00db, #8a2be2);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 2px 1000px 1px #fff inset;
+}
+
+button:hover {
+    box-shadow: none;
+    color: white;
+}
+
+.verifying {
+    box-shadow: none;
+    color: white;
+    cursor: wait;
+}
+
+#label, #size {
+    margin-top: 1%;
+}
+
+#size {
+    display: none;
+}
+
+  .circular{
+    height:100px;
+    width: 100px;
+    position: relative;
+    margin-bottom: 50px;
+    transform:scale(2);
+  }
+  .circular .inner{
+    position: absolute;
+    z-index: 6;
+    top: 50%;
+    left: 50%;
+    height: 80px;
+    width: 80px;
+    margin: -40px 0 0 -40px;
+    background: #fff;
+    border-radius: 100%;
+   
+  }
+
+  .circular img {
+    position: absolute;
+    z-index: 11;
+    top: 50%;
+    left: 50%;
+    height: 80px;
+    width: 80px;
+    margin: -40px 0 0 -40px;
+  }
+
+  .circular .number{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index:10;
+    font-size:18px;
+    font-weight:500;
+    color:#4c00db;
+  }
+  .circular .bar{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgb(224, 224, 224);
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    clip: rect(0px, 100px, 100px, 50px);
+  }
+  .circle .bar .progress{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    clip: rect(0px, 50px, 100px, 0px);
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #4c00db, #8a2be2);
+  }
+  .circle .left .progress{
+    z-index:1;
+  }
+
+  .circle .right {
+    transform: rotate(180deg);
+    z-index:3;
+  }
+
+
+@media (max-width: 400px) {
+    #label, #size {
+        font-size: 14px;
+        margin-top: 3%;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
