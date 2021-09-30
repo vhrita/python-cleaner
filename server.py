@@ -1,4 +1,4 @@
-import eel, os, time, string, math
+import eel, os, time, string, math, winshell
 
 eel.init('web')
 
@@ -57,6 +57,7 @@ def remove_trash():
             pass
         time.sleep(0.1)
     
+    winshell.recycle_bin().empty(confirm=False, show_progress=False, sound=False)
     eel.updateProgress(100)
     eel.finishDelete()
 
