@@ -33,8 +33,8 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=False,
+          console=True,
           disable_windowed_traceback=False,
           target_arch=None,
           codesign_identity=None,
-          entitlements_file=None , icon='E:\\Projetos\\python-cleaner\\web\\img\\fav.ico')
+          entitlements_file=None , uac_admin=True, icon='E:\\Projetos\\python-cleaner\\web\\img\\fav.ico')

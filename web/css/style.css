@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+:root {
+  --progress-gradient: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #4c00db, #8a2be2);
+  --progress-label: #4c00db;
+}
+
 html, body, .main {
     width: 100vw;
     height: 100vh;
@@ -11,15 +16,81 @@ html, body, .main {
 }
 
 .main {
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-button {
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.850);
+  color: #fff;
+}
+
+.loading i {
+  font-size: 3.5em;
+}
+
+.side-bar {
+  width: 30%;
+  height: 100%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #4c00db, #8a2be2);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-bar .item {
+  width: 100%;
+  border-top: solid 1px rgba(204, 204, 204, 0.267);
+  padding: 4% 0 4% 0;
+  cursor: pointer;
+}
+
+.side-bar .active {
+  background-color: #fff;
+  cursor: default;
+  color: #4c00db;
+}
+
+.side-bar .active:hover {
+  color: #4c00db !important;
+}
+
+.side-bar .item:last-child {
+  border-bottom: solid 1px rgba(204, 204, 204, 0.267);
+}
+
+.side-bar .item:hover {
+  color: #c6c6c6;
+}
+
+.content {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#verify {
     margin-top: 30px;
     width: 50%;
     max-width: 502px;
@@ -42,15 +113,39 @@ button {
     box-shadow: 2px 1000px 1px #fff inset;
 }
 
-button:hover {
-    box-shadow: none;
-    color: white;
+#delete {
+  display: none;
+  margin-top: 10px;
+  width: 50%;
+  max-width: 502px;
+  height: 10%;
+  max-height: 55px;
+  font-weight: 600;
+  background-color: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 100rem;
+  padding: 1rem;
+  font-size: 1rem;
+  padding: .5rem 3rem;
+  color: #8f1919;
+  box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+  border: solid 3px transparent;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #420b0b, #cf0000);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #fff inset;
 }
 
 .verifying {
-    box-shadow: none;
-    color: white;
-    cursor: wait;
+  box-shadow: none !important;
+  color: white !important;
+  cursor: wait !important;
+}
+
+#verify:hover, #delete:hover {
+  box-shadow: none;
+  color: white;
 }
 
 #label, #size {
@@ -93,13 +188,13 @@ button:hover {
 
   .circular .number{
     position: absolute;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    z-index:10;
-    font-size:18px;
-    font-weight:500;
-    color:#4c00db;
+    z-index: 10;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--progress-label);
   }
   .circular .bar{
     position: absolute;
@@ -117,7 +212,7 @@ button:hover {
     border-radius: 100%;
     -webkit-border-radius: 100%;
     clip: rect(0px, 50px, 100px, 0px);
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #4c00db, #8a2be2);
+    background-image: var(--progress-gradient);
   }
   .circle .left .progress{
     z-index:1;
@@ -128,6 +223,110 @@ button:hover {
     z-index:3;
   }
 
+
+.process-list, .program-list {
+  width: 100%;
+  min-height: 0;
+  max-height: 90%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.process {
+  width: 80%;
+  padding: 6px;
+  border-top: solid 1px rgba(204, 204, 204, 0.404);
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.process:last-child {
+  border-bottom: solid 1px rgba(204, 204, 204, 0.404);
+}
+
+.process-title {
+  max-width: 90%;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.process-icon, .program-icon {
+  display: flex;
+  margin: 0 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  text-align: right;
+  width: 10%;
+  color: #ff0000;
+  cursor: pointer;
+}
+
+.process-icon:hover, .program-icon:hover {
+  color: #c6c6c6;
+}
+
+.process-icon i, .program-icon i {
+  font-size: 1.5em;
+}
+
+.list-header {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-header i {
+  font-size: 1.5em;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.list-header i:hover {
+  color: #c6c6c6;
+}
+
+.notification-deck {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  margin: 10px 15px 0 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 250px;
+  height: 50px;
+  margin-top: 10px;
+}
+
+.notification:first-child {
+  margin-top: 0;
+}
+
+.green {
+  background-color: rgba(0, 255, 0, 0.63);
+  color: rgb(0, 105, 0);
+}
+
+.red {
+  background-color: rgba(255, 0, 0, 0.63);
+  color: rgb(105, 0, 0);
+}
 
 @media (max-width: 400px) {
     #label, #size {

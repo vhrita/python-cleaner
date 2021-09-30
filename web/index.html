@@ -11,23 +11,55 @@
         <script src="eel.js"></script>
     </head>
     <body>
+        <div class="loading">
+          <i class="fa fa-circle-o-notch fa-spin"></i>
+          <h1>Aguarde...</h1>
+        </div>
+
         <div class="main">
+          <div class="notification-deck"></div>
+
+          <div class="side-bar">
+            <span class="item active" mode="clear">Limpar Discos</span>
+            <span class="item" mode="kill">Matar Processos</span>
+            <span class="item" mode="uninstall">Desinstalar Programas</span>
+          </div>
+
+          <div id="clear" class="content">
             <div class="circular">
-                <div class="inner"></div>
-                <img src="./img/fav.ico">
-                <div class="number">0%</div>
-                <div class="circle">
-                  <div class="bar left">
-                    <div class="progress"></div>
-                  </div>
-                  <div class="bar right">
-                    <div class="progress"></div>
-                  </div>
+              <div class="inner"></div>
+              <img src="./img/fav.ico">
+              <div class="number">0%</div>
+              <div class="circle">
+                <div class="bar left">
+                  <div class="progress"></div>
                 </div>
+                <div class="bar right">
+                  <div class="progress"></div>
+                </div>
+              </div>
             </div>
-            <button id="verify">Verificar</button>
+            <button id="verify"><i class="fa fa-play"></i> Verificar</button>
+            <button id="delete"><i class="fa fa-trash"></i> Deletar</button>
             <span id="label">Clique em verificar para iniciar a limpeza</span>
             <span id="size"></span>
+          </div>
+
+          <div id="kill" class="content" style="display: none">
+            <div class="list-header">
+              <h3>Matar Processos</h3>
+              <i id="process-refresh" class="fa fa-refresh"></i>
+            </div>
+            <div class="process-list"></div>
+          </div>
+
+          <div id="uninstall" class="content" style="display: none">
+            <div class="list-header">
+              <h3>Desinstalar Programas</h3>
+              <i id="program-refresh" class="fa fa-refresh"></i>
+            </div>
+            <div class="program-list"></div>
+          </div>
         </div>
 
         <script src="js/script.js"></script>
