@@ -57,7 +57,11 @@ def remove_trash():
             pass
         time.sleep(0.1)
     
-    winshell.recycle_bin().empty(confirm=False, show_progress=False, sound=False)
+    try:
+        winshell.recycle_bin().empty(confirm=False, show_progress=False, sound=False)
+    except:
+        pass
+
     eel.updateProgress(100)
     eel.finishDelete()
 

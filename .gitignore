@@ -1,2 +1,3 @@
 *.server.spec
 **/build
+**/__pycache__
