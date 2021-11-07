@@ -133,7 +133,6 @@ eel.start('index.html', mode='chrome',
                         size=(900, 600),
                         disable_cache=True,
                         cmdline_args=[
-                            '--incognito',
                             '--disable-sync',
                             '--disable-background-mode',
                             '--disable-translate'

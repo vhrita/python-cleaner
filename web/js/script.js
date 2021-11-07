@@ -2,6 +2,7 @@ var size = 0;
 var counter = 0;
 
 $('.loading').hide();
+$('.modal-container').hide();
 
 eel.expose(loading);
 function loading(s) {
@@ -23,6 +24,18 @@ $('.item').click(function(){
         mode==='kill' && runningProcess();
         mode==='uninstall' && installedProgram();
     }
+})
+
+$('.help').click(function(){
+    $('.modal-container').show();
+})
+
+$('.modal .header i').click(function(){
+    $('.modal-container').hide();
+})
+
+$('.modal-container').click(function(){
+    $('.modal-container').hide();
 })
 
 $('#process-refresh').click(function() {

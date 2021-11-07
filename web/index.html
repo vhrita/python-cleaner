@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>Python Cleaner</title>
+        <title>PyCleaner</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="img/fav.ico">
@@ -20,9 +20,39 @@
           <div class="notification-deck"></div>
 
           <div class="side-bar">
-            <span class="item active" mode="clear">Limpar Discos</span>
-            <span class="item" mode="kill">Matar Processos</span>
-            <span class="item" mode="uninstall">Desinstalar Programas</span>
+            <div>
+              <h1>PyCleaner</h1>
+              <img src="./img/python.png" alt="PyCleaner">
+            </div>
+            <div class="items">
+              <span class="item active" mode="clear">Limpar Discos</span>
+              <span class="item" mode="kill">Finalizar Processos</span>
+              <span class="item" mode="uninstall">Desinstalar Programas</span>
+            </div>
+            <div class="side-footer">
+              <span class="footer-item help" title="Ajuda"><i class="fa fa-question-circle"></i></span>
+            </div>
+          </div>
+
+          <div class="modal-container">
+            <div class="modal">
+              <div class="header">
+                <h2>Ajuda</h2>
+                <i class="fa fa-times"></i>
+              </div>
+              <div class="body">
+                <p>
+                  Limpeza de disco: Ao utilizar essa função será possível fazer uma verificação para realizar uma limpeza mais profunda. 
+                  Eliminando arquivos ocultos que podem ocasionar lentidão. 
+                </p>
+                <p>
+                  Finalizar processos: Possui a mesma função que o gerenciador de tarefas, mas de uma forma mais simplificada, ao entrar nessa aba é possível eliminar um processo ou programa que esteja travado ou ocasionando problemas. 
+                </p>  
+                <p>  
+                  Desinstalar programas: Nesta aba é possível deletar programas do computador a sua escolha.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div id="clear" class="content">
@@ -47,7 +77,7 @@
 
           <div id="kill" class="content" style="display: none">
             <div class="list-header">
-              <h3>Matar Processos</h3>
+              <h3>Finalizar Processos</h3>
               <i id="process-refresh" class="fa fa-refresh"></i>
             </div>
             <div class="process-list"></div>
