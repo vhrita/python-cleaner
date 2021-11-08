@@ -27,7 +27,11 @@ $('.item').click(function(){
 })
 
 $('.help').click(function(){
-    $('.modal-container').show();
+    $('#help').show();
+})
+
+$('.about').click(function(){
+    $('#about').show();
 })
 
 $('.modal .header i').click(function(){

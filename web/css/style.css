@@ -102,11 +102,30 @@ html, body, .main {
 
 .side-bar .side-footer {
   justify-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.side-footer span:nth-child(1) {
+  margin-right: 15px;
 }
 
 .side-footer i {
   cursor: pointer;
   font-size: 2.5em;
+}
+
+#about p:nth-child(2) {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+#about p:last-child {
+  padding: 0;
+  margin: 0 0 1% 0;
+  text-align: center;
 }
 
 .modal-container {
